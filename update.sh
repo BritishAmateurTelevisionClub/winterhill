@@ -11,6 +11,9 @@ echo
 
 cd /home/pi
 
+# Amend the sources.list to legacy
+sudo bash -c 'echo -e "deb http://legacy.raspbian.org/raspbian/ buster main contrib non-free rpi" > /etc/apt/sources.list' 
+
 ## Check which update to load
 GIT_SRC_FILE=".wh_gitsrc"
 if [ -e ${GIT_SRC_FILE} ]; then

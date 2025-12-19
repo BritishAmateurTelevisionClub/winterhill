@@ -1,3 +1,6 @@
+202512190
+Amend the sources.list to legacy
+
 202108240
 Allow system update release info change
 

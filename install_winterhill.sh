@@ -11,6 +11,18 @@ if [ $? != 0 ]; then
   exit
 fi
 
+# Amend the sources.list to legacy
+sudo bash -c 'echo -e "deb http://legacy.raspbian.org/raspbian/ buster main contrib non-free rpi" > /etc/apt/sources.list' 
+
+echo
+echo "Updating the OS and Installed Packages"
+echo
+
+sudo dpkg --configure -a                         # Make sure that all the packages are properly configured
+sudo apt-get clean                               # Clean up the old archived packages
+sudo apt-get update --allow-releaseinfo-change   # Update the package list
+sudo apt-get -y dist-upgrade                     # Upgrade all the installed packages to their latest version
+
 # Check which source needs to be loaded
 GIT_SRC="BritishAmateurTelevisionClub"
 GIT_SRC_FILE=".wh_gitsrc"
